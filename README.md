@@ -14,6 +14,7 @@ Proyecto desarrollado con VUE 🟢, con gestor de estado PINIA, estilado con TAI
 - Reiniciar la partida una vez termine
   
 <img src="./src/assets/Capture_select_difficulty.JPG" alt="Captura escogiendo dificultad" width="320">
+
 ---
 
 ## Entorno recomendado para ejecutar el proyecto
