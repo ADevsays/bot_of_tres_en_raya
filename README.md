@@ -1,4 +1,4 @@
-# tres-en-raya
+# BOT Tren en Raya
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -10,20 +10,19 @@ This template should help get you started developing with Vue 3 in Vite.
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
-
+## Instalar dependencias del proyecto
+Funciona con VUE, Tailwind y Vitests.
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Levantar el servidor en local
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
-
+### Compilar y unificar para producción
 ```sh
 npm run build
 ```
