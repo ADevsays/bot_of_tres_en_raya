@@ -2,8 +2,8 @@
 import Square from './components/Square.vue';
 import WinnerModal from './components/WinnerModal.vue';
 import winnerConditional from './core/winnerConditional';
-import Button from './components/Button.vue';
-import RivalModal from './components/RivalModal.vue';
+import Button from './components/button.vue';
+import RivalModal from './components/rival_modal.vue';
 import { useSignUseStore } from './store/signUse';
 import { useBot } from './store/bot';
 import { arrIn } from './helpers/arrIn';
