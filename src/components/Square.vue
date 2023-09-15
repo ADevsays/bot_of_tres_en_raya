@@ -43,10 +43,10 @@ const emit = defineEmits(['getTheSquare']);
 function updateState() {
     //Check if the global state allow play sound
     const {botOrPlayer, difficulty} = storeBot;
-    const canPlayAudio = storeAudio.canUseAudio && botOrPlayer && difficulty;
+    const canPlayAudio = storeAudio.canUseAudio && botOrPlayer && difficulty && !store.finishPlay;
     if (canPlayAudio) playSounds();
     
-    if (changeOnce.value && storeBot.botOrPlayer && difficulty) {
+    if (changeOnce.value && !store.finishPlay && storeBot.botOrPlayer && difficulty) {
         //Check if the user try do click before the bot thinks
         //Bloque que se intente jugar antes de que el bot juegue.
         const {botOrPlayer, canPlay} = storeBot;
