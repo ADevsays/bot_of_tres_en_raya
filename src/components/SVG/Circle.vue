@@ -6,7 +6,7 @@ export default {
     }
   },
   mounted() {
-    if (navigator.userAgent.match(/Android/i)) {
+    if (navigator.userAgent.match(/iPhone/i)) {
       this.isIphone = true;
     }
   }
