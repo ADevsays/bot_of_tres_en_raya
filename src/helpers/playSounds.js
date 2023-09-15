@@ -4,3 +4,4 @@ export function playSounds(){
     audio.play();
     audio.volume = 0.5;
 };
+ 
