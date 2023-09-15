@@ -12,6 +12,8 @@ Proyecto desarrollado con VUE 🟢, con gestor de estado PINIA, estilado con TAI
 - Jugar contra el Bot
 - Escoger la dificultad del bot **(Díficil e Imposible)**
 - Reiniciar la partida una vez termine
+- Progressive Web Application, puedes instalar el juego para seguir intentando vencer al bot incluso sin conexión. PWA
+- Se añadieron efectos de sonido para  una experiencia más inmersiva. 🗿
   
 <img src="./src/assets/Capture_select_difficulty.JPG" alt="Captura escogiendo dificultad" width="320">
 
@@ -23,6 +25,7 @@ IDE: [Visual Studio Code](https://code.visualstudio.com/)
 Con la extensión: [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
 
 ---
+
 
 ## Comandos para levantar el proyecto en tu máquina
 
