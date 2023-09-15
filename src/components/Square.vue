@@ -6,11 +6,15 @@ import { limitBorder } from '../helpers/limitBorder';
 import { base3 } from '../helpers/base3';
 import { useSignUseStore } from '../store/signUse';
 import { useBot } from '../store/bot';
+import {useAudio} from '../store/controlAudio';
 import { POSSIBLE_SIGNS } from '../const/signs';
 import { WHO_PLAY } from '../const/bot_or_player';
+import {playSounds} from '../helpers/playSounds';
+import { disableAutoUnmount } from '@vue/test-utils';
 //Define store
 const store = useSignUseStore();
 const storeBot = useBot();
+const storeAudio = useAudio();
 //Define props
 const props = defineProps({
     square: Number,
@@ -30,15 +34,25 @@ onMounted(() => {
 });
 
 //Emit
+
 const emit = defineEmits(['getTheSquare']);
+
+
 
 //Methods
 function updateState() {
-    if (changeOnce.value && !store.finishPlay && storeBot.botOrPlayer) {
+    //Check if the global state allow play sound
+    const {botOrPlayer, difficulty} = storeBot;
+    const canPlayAudio = storeAudio.canUseAudio && botOrPlayer && difficulty;
+    if (canPlayAudio) playSounds();
+    
+    if (changeOnce.value && storeBot.botOrPlayer && difficulty) {
+        //Check if the user try do click before the bot thinks
+        //Bloque que se intente jugar antes de que el bot juegue.
         const {botOrPlayer, canPlay} = storeBot;
-        if(botOrPlayer == WHO_PLAY.bot && !canPlay){
-            return;
-        };
+        const timePass = botOrPlayer == WHO_PLAY.bot && !canPlay;
+        if(timePass) return;
+
         store.updateState();
         signToUse.value = store.signToUse;
         hoverState.value = false;

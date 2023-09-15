@@ -4,7 +4,7 @@ import { defineStore } from "pinia";
 export const useBot = defineStore('useBot',{
     state: ()=> ({
         botOrPlayer: '',
-        difficulty: '',
+        difficulty: 'Player',
         canPlay: true
     }),
     actions:{

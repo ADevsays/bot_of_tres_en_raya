@@ -4,6 +4,7 @@ import WinnerModal from './components/WinnerModal.vue';
 import winnerConditional from './core/winnerConditional';
 import Button from './components/button.vue';
 import RivalModal from './components/rival_modal.vue';
+import AudioController from './components/AudioController.vue';
 import { useSignUseStore } from './store/signUse';
 import { useBot } from './store/bot';
 import { arrIn } from './helpers/arrIn';
@@ -17,7 +18,8 @@ export default {
     Square,
     WinnerModal,
     Button,
-    RivalModal
+    RivalModal,
+    AudioController
   },
   data() {
     return {
@@ -126,24 +128,24 @@ export default {
     },
     selectRival(rival) {
       this.$storeBot.updateRival(rival);
+      if(rival == WHO_PLAY.bot) this.$storeBot.updateDifficulty('');
       this.selectRivalValue = this.$storeBot.botOrPlayer;
     },
     selectDifficulty(difficulty) {
       this.difficulty = difficulty;
+      this.$storeBot.updateDifficulty(difficulty);
       this.$store.resetFinish();
     }
   }
 }
 </script>
 
-
-
-
-
-
 <template>
   <div class="h-screen flex flex-col justify-center items-center">
-    <h1 class="text-center text-5xl m-8 font-bold">Tres en raya</h1>
+    <div class="relative w-full lg:max-w-2xl">
+      <h1 class="text-center text-5xl m-8 font-bold">Tres en raya</h1>
+      <AudioController/>
+    </div>
     <div class="grid grid-cols-3">
       <Square v-for="square in squares" :key="square" :square="square" @get-the-square="getPosition" />
     </div>
