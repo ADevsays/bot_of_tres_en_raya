@@ -1,6 +1,7 @@
 import { hasTwoSimilarElements } from "../../helpers/hasTwoElements";
 import winnerConditional from "../winnerConditional";
 import { GAME_MODE } from "../../const/game_mode";
+import { CENTER_SQUARE } from "../../const/botConst";
 
 export class Bot {
   constructor(difficulty) {
@@ -22,8 +23,8 @@ export class Bot {
       const randomIndex = Math.floor(Math.random() * possibleMovs.length)
       return possibleMovs[randomIndex != 0 ? randomIndex : 1];
     } else {
-      if (!arrayMvmts.includes(5)) {
-        return 5;
+      if (!arrayMvmts.includes(CENTER_SQUARE)) {
+        return CENTER_SQUARE;
       }
       return this.calcRandomCorner();
     }
